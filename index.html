@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Aditya & Anchal • Wedding Invitation | A²</title>
+  <meta name="title" content="Aditya & Anchal • Wedding Invitation | A²" />
+  <meta name="description" content="We cordially invite you to the wedding celebrations of Aditya & Anchal on 26th & 30th November 2026 at S.D. Palace, Lucknow." />
+  <meta name="theme-color" content="#50121C" />
+
+  <!-- Open Graph / WhatsApp / Facebook Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Aditya & Anchal • Wedding Invitation | A²" />
+  <meta property="og:description" content="Join us in celebrating the wedding of Aditya & Anchal. 26th & 30th November 2026, S.D. Palace, Lucknow." />
+  <meta property="og:image" content="assets/couple.jpg" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            royal: {
+              maroon: '#4A0E17',
+              darkMaroon: '#31070D',
+              burgundy: '#671420',
+              cream: '#FDFBF7',
+              warmIvory: '#FAF6EF',
+              sand: '#F3EAD8',
+              gold: '#D4AF37',
+              goldLight: '#F3E5AB',
+              goldDark: '#996515',
+              champagne: '#EED9B3',
+              terracotta: '#A23B2A',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            display: ['"Playfair Display"', 'serif'],
+            script: ['"Great Vibes"', 'cursive'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'gold': '0 4px 20px -2px rgba(212, 175, 55, 0.35)',
+            'royal': '0 10px 30px -5px rgba(74, 14, 23, 0.4)',
+            'envelope': '0 20px 45px -10px rgba(49, 7, 13, 0.6)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Custom Gold Gradient & Shimmer Effects */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #ECC876 0%, #D4AF37 40%, #FFE9A0 60%, #AA771C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .gold-foil-bg {
+      background: linear-gradient(135deg, #ECC876 0%, #D4AF37 35%, #F7E4A8 65%, #996515 100%);
+    }
+
+    .maroon-card-gradient {
+      background: linear-gradient(165deg, #5B121C 0%, #3D0911 60%, #250308 100%);
+    }
+
+    .ivory-card-gradient {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 50%, #F5EFE4 100%);
+    }
+
+    /* Envelope 3D Fold & Unboxing Animation */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+
+    .envelope-flap {
+      transform-origin: top center;
+      transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .envelope-open .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 10;
+    }
+
+    .card-slide {
+      transition: transform 1.1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s, opacity 0.8s ease 0.3s;
+    }
+
+    .envelope-open .card-slide {
+      transform: translateY(-80px) scale(1.02);
+    }
+
+    /* Ambient Gold Shimmer Border */
+    .gold-border-ornate {
+      position: relative;
+    }
+    .gold-border-ornate::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    /* Petal Falling Animation */
+    @keyframes fall {
+      0% {
+        transform: translateY(-20px) rotate(0deg) scale(0.8);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.9;
+      }
+      80% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(105vh) rotate(380deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    .petal {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fall 4.5s linear forwards;
+    }
+
+    /* Pulsing Glow Animation */
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 0.85; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+    .animate-subtle-pulse {
+      animation: subtlePulse 3s infinite ease-in-out;
+    }
+
+    /* Rotating Disc Animation */
+    @keyframes spinDisc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spinDisc 9s linear infinite;
+    }
+
+    /* Hide scrollbars but keep functionality */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="bg-[#1F070B] text-[#331117] font-body min-h-screen antialiased select-none overflow-x-hidden">
+
+  <!-- Desktop Ambient Canvas Background (Mimics Editorial Mobile Preview) -->
+  <div class="fixed inset-0 z-0 hidden lg:block opacity-30 pointer-events-none">
+    <div class="absolute inset-0 bg-cover bg-center filter blur-2xl scale-110" style="background-image: url('assets/couple.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#1F070B] via-[#2A0A10]/90 to-[#1F070B]"></div>
+  </div>
+
+  <!-- Audio Player (Hidden Native Element) -->
+  <audio id="weddingAudio" loop preload="auto">
+    <source src="assets/wedding_music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Floating Audio Pill Control (Top Right) -->
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2">
+    <button id="audioToggleBtn" onclick="toggleAudio()" class="group flex items-center gap-2 bg-[#3A0C13]/90 backdrop-blur-md border border-[#D4AF37]/50 text-[#F3E5AB] pl-2.5 pr-3.5 py-1.5 rounded-full shadow-gold text-xs font-medium transition-all duration-300 hover:scale-105 active:scale-95">
+      <span id="discIcon" class="w-6 h-6 rounded-full gold-foil-bg flex items-center justify-center text-[#4A0E17] text-[11px] shadow">
+        <svg id="musicSvg" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+      </span>
+      <span id="audioStatusText" class="tracking-wide">Music : Off</span>
+    </button>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 1. ENVELOPE OPENING OVERLAY (The Digital Yes Viral Experience) -->
+  <!-- ========================================================================= -->
+  <div id="envelopeOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-lg px-4 transition-all duration-700">
+    <div class="w-full max-w-sm perspective-1000">
+      
+      <!-- Monogram Tagline Above Envelope -->
+      <div class="text-center mb-6 animate-pulse">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full border border-[#D4AF37]/60 bg-[#4A0E17]/80 shadow-gold text-[#F3E5AB] font-display text-2xl font-bold tracking-tight">
+          A<span class="text-xs -mt-3 text-[#D4AF37]">²</span>
+        </div>
+        <p class="font-display italic text-[#F3E5AB] text-lg mt-2 tracking-wide">You are cordially invited</p>
+        <p class="font-body text-[#EED9B3]/70 text-xs tracking-widest uppercase">Tap seal to open wedding invitation</p>
+      </div>
+
+      <!-- 3D Envelope Container -->
+      <div id="envelopeBox" class="relative w-full aspect-[4/3] rounded-2xl bg-gradient-to-b from-[#540F19] to-[#34070D] border-2 border-[#D4AF37]/40 shadow-envelope overflow-hidden cursor-pointer group" onclick="openInvitation()">
+        
+        <!-- Flap (Top Triangle with Wax Seal) -->
+        <div class="envelope-flap absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-[#6B1421] to-[#450A12] border-b border-[#D4AF37]/40 z-20 flex items-center justify-center shadow-md">
+          
+          <!-- Wax Seal Button ($A^2$ Monogram) -->
+          <div class="relative -bottom-6 flex items-center justify-center">
+            <div class="w-16 h-16 rounded-full gold-foil-bg p-1 shadow-gold flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+              <div class="w-full h-full rounded-full border border-[#7A4E0B] flex flex-col items-center justify-center bg-gradient-to-br from-[#E2B755] to-[#B8860B] text-[#34070D]">
+                <span class="font-display font-bold text-lg leading-none">A<sup class="text-[10px] font-bold">2</sup></span>
+                <span class="text-[7px] uppercase font-bold tracking-tighter text-[#4A0E17]">SEAL</span>
+              </div>
+            </div>
+            <!-- Ripple Wave -->
+            <div class="absolute inset-0 rounded-full border border-[#D4AF37] animate-ping opacity-30"></div>
+          </div>
+
+        </div>
+
+        <!-- Envelope Interior Peek Preview Card -->
+        <div class="card-slide absolute inset-x-4 top-10 bottom-4 rounded-xl ivory-card-gradient p-5 flex flex-col items-center justify-center text-center shadow-lg border border-[#D4AF37]/40 z-10">
+          <p class="font-body text-[10px] text-[#A23B2A] tracking-[0.25em] uppercase font-semibold">॥ श्री गणेशाय नमः ॥</p>
+          <h2 class="font-script text-3xl text-[#4A0E17] mt-1">Aditya & Anchal</h2>
+          <div class="w-16 h-[1px] bg-[#D4AF37] my-2"></div>
+          <p class="font-serif italic text-xs text-[#5A1827]">Wedding Celebrations</p>
+          <p class="font-body text-[11px] font-medium text-[#7A4E0B] mt-1">November 2026 • Lucknow</p>
+        </div>
+
+        <!-- Lower Envelope Pocket -->
+        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#450A12] to-transparent z-15 pointer-events-none"></div>
+
+      </div>
+
+      <!-- Action Helper Hint -->
+      <div class="text-center mt-5">
+        <button onclick="openInvitation()" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-foil-bg text-[#3D0911] font-display font-bold text-sm tracking-wider uppercase shadow-gold hover:brightness-110 transition-all">
+          <span>Open Invitation</span>
+          <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN MOBILE-FIRST INVITATION CONTAINER -->
+  <!-- ========================================================================= -->
+  <main class="relative z-10 max-w-[430px] mx-auto min-h-screen bg-royal-cream shadow-2xl overflow-hidden pb-28 border-x border-[#D4AF37]/20">
+
+    <!-- Subtle Floral Motif Watermark in Corners -->
+    <div class="absolute top-0 right-0 w-36 h-36 bg-contain bg-no-repeat bg-top-right opacity-35 pointer-events-none" style="background-image: radial-gradient(circle at 100% 0%, #D4AF37 0%, transparent 70%);"></div>
+    <div class="absolute bottom-0 left-0 w-36 h-36 bg-contain bg-no-repeat bg-bottom-left opacity-35 pointer-events-none" style="background-image: radial-gradient(circle at 0% 100%, #D4AF37 0%, transparent 70%);"></div>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 1: SACRED INVOCATION (Lord Ganesha & Blessings) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <header class="pt-10 px-6 text-center relative">
+      <!-- Ganesha SVG Illustration -->
+      <div class="flex justify-center mb-3">
+        <div class="w-14 h-14 rounded-full border border-[#D4AF37]/40 flex items-center justify-center p-2 bg-[#FAF6EE] shadow-sm">
+          <svg class="w-10 h-10 text-[#A23B2A]" viewBox="0 0 64 64" fill="currentColor">
+            <!-- Stylized Ganesha Icon -->
+            <path d="M32 6c-3.5 0-6.5 2.5-7 6-2 0-4 1.5-4 3.5 0 2 1.5 3.5 3.5 3.5.5 0 1-.1 1.5-.3.5 2.3 2 4.3 4 5.3v2c-4 1.5-8 5-8 10 0 6 5 11 11 11s11-5 11-11c0-5-4-8.5-8-10v-2c2-1 3.5-3 4-5.3.5.2 1 .3 1.5.3 2 0 3.5-1.5 3.5-3.5 0-2-2-3.5-4-3.5-.5-3.5-3.5-6-7-6zm-1 4c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm1 14c-1.5 0-3-1-3-2.5 0-1 1-2 2-2.3v1.3c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-1.3c1 .3 2 1.3 2 2.3 0 1.5-1.5 2.5-3 2.5zm0 18c-4.4 0-8-3.6-8-8 0-3.5 2.8-6.5 6-7.5v2.5c0 1.1.9 2 2 2s2-.9 2-2v-2.5c3.2 1 6 4 6 7.5 0 4.4-3.6 8-8 8z" opacity="0.9"/>
+            <circle cx="32" cy="18" r="2.5" fill="#D4AF37"/>
+            <path d="M29 34h6v2h-6z" fill="#D4AF37"/>
+            <path d="M30 38h4v2h-4z" fill="#D4AF37"/>
+          </svg>
+        </div>
+      </div>
+
+      <p class="text-[#A23B2A] font-body text-xs tracking-[0.25em] font-semibold uppercase">॥ श्री गणेशाय नमः ॥</p>
+      <p class="font-serif italic text-base text-[#671420] mt-1 font-medium">With the blessings of Lord Ganesha</p>
+      <div class="flex items-center justify-center gap-3 my-3">
+        <span class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#D4AF37]"></span>
+        <span class="text-[#D4AF37] text-xs">✦ ❖ ✦</span>
+        <span class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#D4AF37]"></span>
+      </div>
+      <p class="font-serif text-sm text-[#50121C] tracking-wide leading-relaxed px-4">
+        We cordially invite you to celebrate the wedding union of
+      </p>
+    </header>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 2: HERO NAMES & MONOGRAM ($A^2$) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="text-center px-4 pt-4 pb-6">
+      
+      <!-- Monogram Badge $A^2$ -->
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#D4AF37] bg-[#FAF6EE] shadow-sm mb-2">
+        <span class="font-display font-bold text-[#671420] text-xl">A<sup class="text-[11px] text-[#A23B2A] font-bold">2</sup></span>
+      </div>
+
+      <!-- Couple Names in Editorial Script -->
+      <h1 class="font-script text-6xl text-[#4A0E17] leading-none mb-1">
+        Aditya
+      </h1>
+      <div class="flex items-center justify-center gap-3 my-1">
+        <span class="h-[1px] w-8 bg-[#D4AF37]/60"></span>
+        <span class="font-serif italic text-2xl text-[#A23B2A] font-medium">&</span>
+        <span class="h-[1px] w-8 bg-[#D4AF37]/60"></span>
+      </div>
+      <h1 class="font-script text-6xl text-[#4A0E17] leading-none">
+        Anchal
+      </h1>
+
+      <!-- Intertwined Rings & Together Forever -->
+      <div class="mt-4 flex flex-col items-center">
+        <div class="flex items-center justify-center gap-1.5 text-[#D4AF37]">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" opacity="0.3"/>
+            <path d="M9 12c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3zm3-7c-3.87 0-7 3.13-7 7s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7z"/>
+          </svg>
+          <svg class="w-6 h-6 fill-current -ml-2 text-[#E2B755]" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 4L14 7H10L12 4Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <p class="font-body text-[11px] font-bold tracking-[0.35em] text-[#671420] uppercase mt-2">
+          Together Forever
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 3: THE COUPLE PHOTO SHOWCASE (Arch Frame) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-6 py-4">
+      <div class="relative mx-auto max-w-[340px] rounded-t-[140px] rounded-b-3xl p-2.5 bg-gradient-to-b from-[#ECC876] via-[#D4AF37] to-[#8F5A0D] shadow-royal">
+        <!-- Inner Arched Frame -->
+        <div class="relative rounded-t-[135px] rounded-b-2xl overflow-hidden bg-white border border-[#F3E5AB]/60 aspect-[3/4]">
+          <img src="assets/couple.jpg" alt="Aditya and Anchal" class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700" />
+          
+          <!-- Subtle Gradient Sheen -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#31070D]/80 via-transparent to-transparent flex items-end p-5">
+            <div class="text-white text-center w-full">
+              <p class="font-serif italic text-lg text-[#F7E4A8]">"Two souls, one sacred journey"</p>
+              <p class="font-body text-[10px] uppercase tracking-widest text-white/80 mt-0.5">Aditya & Anchal • Lucknow</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ornate Corner Accents -->
+        <div class="absolute -top-2 -left-2 text-[#D4AF37] text-lg">✦</div>
+        <div class="absolute -top-2 -right-2 text-[#D4AF37] text-lg">✦</div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 4: FAMILY LINEAGE / PARENTAL BLESSINGS -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-6">
+      <div class="rounded-2xl border border-[#D4AF37]/40 bg-[#FAF6EE] p-5 shadow-sm gold-border-ornate">
+        
+        <div class="grid grid-cols-2 gap-4 text-center divide-x divide-[#D4AF37]/30">
+          
+          <!-- Groom Side -->
+          <div class="pr-2">
+            <h3 class="font-script text-3xl text-[#4A0E17]">Aditya</h3>
+            <p class="font-body text-[10px] uppercase tracking-wider text-[#A23B2A] font-semibold mt-1">Son of</p>
+            <p class="font-serif text-sm font-semibold text-[#31070D] mt-1 leading-snug">
+              Shri Ramugrah Rai
+            </p>
+            <p class="font-serif italic text-xs text-[#671420]">&amp;</p>
+            <p class="font-serif text-sm font-semibold text-[#31070D] leading-snug">
+              Smt. Vimla Rai
+            </p>
+          </div>
+
+          <!-- Bride Side -->
+          <div class="pl-2">
+            <h3 class="font-script text-3xl text-[#4A0E17]">Anchal</h3>
+            <p class="font-body text-[10px] uppercase tracking-wider text-[#A23B2A] font-semibold mt-1">Daughter of</p>
+            <p class="font-serif text-sm font-semibold text-[#31070D] mt-1 leading-snug">
+              Shri Shyamsundar Rai
+            </p>
+            <p class="font-serif italic text-xs text-[#671420]">&amp;</p>
+            <p class="font-serif text-sm font-semibold text-[#31070D] leading-snug">
+              Smt. Guddi Rai
+            </p>
+          </div>
+
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-[#D4AF37]/30 text-center">
+          <p class="font-serif italic text-xs text-[#50121C]">
+            Seek your warm presence, blessings & love for their new beginning.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 5: LIVE COUNTDOWN TIMERS (TILAK & SHADI) -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-6">
+      <div class="rounded-3xl maroon-card-gradient text-white p-6 shadow-royal border border-[#D4AF37]/50 relative overflow-hidden">
+        
+        <!-- Background Monogram Watermark -->
+        <div class="absolute -right-6 -bottom-6 font-display text-8xl font-black text-white/5 pointer-events-none select-none">
+          A²
+        </div>
+
+        <!-- Section Header -->
+        <div class="text-center relative z-10">
+          <p class="font-body text-[10px] tracking-[0.3em] uppercase text-[#F3E5AB] font-bold">Auspicious Moment</p>
+          <h2 class="font-display text-2xl text-white mt-1">Counting Down With Love</h2>
+          <div class="w-12 h-[1px] bg-[#D4AF37] mx-auto my-2"></div>
+        </div>
+
+        <!-- Dual Countdown Toggle Tabs -->
+        <div class="flex items-center justify-center p-1 bg-black/30 rounded-full border border-[#D4AF37]/30 my-4 relative z-10 max-w-xs mx-auto">
+          <button id="tabTilak" onclick="switchCountdown('tilak')" class="flex-1 py-1.5 px-3 rounded-full text-xs font-semibold transition-all duration-300 gold-foil-bg text-[#3D0911] shadow">
+            Tilak (26 Nov)
+          </button>
+          <button id="tabShadi" onclick="switchCountdown('shadi')" class="flex-1 py-1.5 px-3 rounded-full text-xs font-semibold transition-all duration-300 text-[#F3E5AB] hover:text-white">
+            Shadi (30 Nov)
+          </button>
+        </div>
+
+        <!-- Active Event Info Tagline -->
+        <div class="text-center mb-5 relative z-10">
+          <p id="countdownEventLabel" class="font-serif italic text-sm text-[#F7E4A8]">
+            Tilak Ceremony • Thursday, 26 November 2026
+          </p>
+        </div>
+
+        <!-- Countdown Digits Grid -->
+        <div class="grid grid-cols-4 gap-2 relative z-10">
+          
+          <!-- Days -->
+          <div class="bg-black/35 rounded-xl border border-[#D4AF37]/30 p-2 text-center backdrop-blur-sm">
+            <span id="daysVal" class="font-display text-2xl md:text-3xl font-bold text-[#F3E5AB] block leading-none">00</span>
+            <span class="text-[9px] uppercase tracking-wider text-white/70 font-body mt-1 block">Days</span>
+          </div>
+
+          <!-- Hours -->
+          <div class="bg-black/35 rounded-xl border border-[#D4AF37]/30 p-2 text-center backdrop-blur-sm">
+            <span id="hoursVal" class="font-display text-2xl md:text-3xl font-bold text-[#F3E5AB] block leading-none">00</span>
+            <span class="text-[9px] uppercase tracking-wider text-white/70 font-body mt-1 block">Hours</span>
+          </div>
+
+          <!-- Minutes -->
+          <div class="bg-black/35 rounded-xl border border-[#D4AF37]/30 p-2 text-center backdrop-blur-sm">
+            <span id="minsVal" class="font-display text-2xl md:text-3xl font-bold text-[#F3E5AB] block leading-none">00</span>
+            <span class="text-[9px] uppercase tracking-wider text-white/70 font-body mt-1 block">Mins</span>
+          </div>
+
+          <!-- Seconds -->
+          <div class="bg-black/35 rounded-xl border border-[#D4AF37]/30 p-2 text-center backdrop-blur-sm relative">
+            <span id="secsVal" class="font-display text-2xl md:text-3xl font-bold text-[#F3E5AB] block leading-none animate-subtle-pulse">00</span>
+            <span class="text-[9px] uppercase tracking-wider text-white/70 font-body mt-1 block">Secs</span>
+            <span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-ping"></span>
+          </div>
+
+        </div>
+
+        <!-- Both Timers Summary Footnote -->
+        <div class="mt-5 pt-3 border-t border-white/10 text-center relative z-10 flex items-center justify-between text-[11px] text-[#F3E5AB]/80 font-body">
+          <span>🪔 Tilak : 26 Nov 2026</span>
+          <span class="text-[#D4AF37]">✦</span>
+          <span>💍 Shadi : 30 Nov 2026</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 6: EVENT CELEBRATIONS & TIMELINE -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-6">
+      
+      <div class="text-center mb-6">
+        <p class="font-body text-[10px] tracking-[0.3em] uppercase text-[#A23B2A] font-bold">Celebrations</p>
+        <h2 class="font-display text-3xl text-[#4A0E17] mt-1">Wedding Itinerary</h2>
+        <div class="w-12 h-[1px] bg-[#D4AF37] mx-auto my-2"></div>
+        <p class="font-serif italic text-xs text-[#671420]">Please join us to celebrate both sacred occasions</p>
+      </div>
+
+      <!-- Events List -->
+      <div class="space-y-5">
+        
+        <!-- CARD 1: TILAK CEREMONY -->
+        <div class="rounded-2xl border-2 border-[#D4AF37]/50 bg-[#FAF6EE] p-5 shadow-sm relative overflow-hidden">
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-3">
+              <!-- Tilak Icon / Kalash Motif -->
+              <div class="w-12 h-12 rounded-full gold-foil-bg flex items-center justify-center text-[#3D0911] shadow">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <!-- Pooja Thali / Diya motif -->
+                  <path d="M12 2c1.1 0 2 .9 2 2 0 .74-.4 1.38-1 1.72v1.4c3.4.46 6 3.38 6 6.88 0 3.87-3.13 7-7 7s-7-3.13-7-7c0-3.5 2.6-6.42 6-6.88V5.72C10.4 5.38 10 4.74 10 4c0-1.1.9-2 2-2zm0 8c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#A23B2A]/10 text-[#A23B2A] border border-[#A23B2A]/20">
+                  Pre-Wedding Ritual
+                </span>
+                <h3 class="font-display text-xl text-[#4A0E17] font-bold">Tilak Ceremony</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date & Time -->
+          <div class="mt-4 bg-white/70 rounded-xl p-3 border border-[#D4AF37]/30 flex items-center justify-between">
+            <div>
+              <p class="font-serif font-bold text-sm text-[#31070D]">Thursday, 26 November 2026</p>
+              <p class="font-body text-xs text-[#671420]">Auspicious Evening Celebrations</p>
+            </div>
+            <div class="text-right">
+              <span class="font-display font-bold text-lg text-[#A23B2A]">26</span>
+              <span class="text-[10px] uppercase block font-semibold text-[#7A4E0B]">NOV</span>
+            </div>
+          </div>
+
+          <!-- Add to Calendar Button -->
+          <div class="mt-3 flex gap-2">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Tilak+Ceremony+-+Aditya+%26+Anchal&dates=20261126T123000Z/20261126T173000Z&details=Tilak+Ceremony+celebration+of+Aditya+%26+Anchal+at+S.D.+Palace%2C+Sitapur+Road%2C+Lucknow.&location=S.D.+Palace%2C+Near+I.I.M.%2C+Sitapur+Road%2C+Lucknow" target="_blank" class="flex-1 py-2 px-3 rounded-lg bg-white border border-[#D4AF37]/50 text-[#671420] text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-[#FAF6EE] shadow-sm transition">
+              <svg class="w-3.5 h-3.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+              <span>Add to Calendar</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: WEDDING CEREMONY (SHADI) -->
+        <div class="rounded-2xl border-2 border-[#D4AF37] bg-gradient-to-br from-[#FAF6EE] to-[#F3EAD8] p-5 shadow-md relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-[#D4AF37] text-[#31070D] font-body text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-bl-xl shadow-sm">
+            Main Event
+          </div>
+
+          <div class="flex items-start justify-between">
+            <div class="flex items-center gap-3">
+              <!-- Wedding Rings Motif -->
+              <div class="w-12 h-12 rounded-full bg-[#4A0E17] text-[#F3E5AB] flex items-center justify-center shadow">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+              <div>
+                <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#D4AF37]/20 text-[#671420] border border-[#D4AF37]/30">
+                  The Auspicious Vows
+                </span>
+                <h3 class="font-display text-xl text-[#4A0E17] font-bold">Wedding Ceremony</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date & Time -->
+          <div class="mt-4 bg-white/80 rounded-xl p-3 border border-[#D4AF37]/40 flex items-center justify-between">
+            <div>
+              <p class="font-serif font-bold text-sm text-[#31070D]">Monday, 30 November 2026</p>
+              <p class="font-body text-xs text-[#671420]">Baraat, Jaimala &amp; Sacred Pheras</p>
+            </div>
+            <div class="text-right">
+              <span class="font-display font-bold text-lg text-[#A23B2A]">30</span>
+              <span class="text-[10px] uppercase block font-semibold text-[#7A4E0B]">NOV</span>
+            </div>
+          </div>
+
+          <!-- Add to Calendar Button -->
+          <div class="mt-3 flex gap-2">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+Ceremony+-+Aditya+%26+Anchal&dates=20261130T133000Z/20261130T213000Z&details=Wedding+Ceremony+of+Aditya+%26+Anchal+at+S.D.+Palace%2C+Sitapur+Road%2C+Lucknow.&location=S.D.+Palace%2C+Near+I.I.M.%2C+Sitapur+Road%2C+Lucknow" target="_blank" class="flex-1 py-2 px-3 rounded-lg gold-foil-bg text-[#3D0911] text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm hover:brightness-105 transition">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+              <span>Add Wedding to Calendar</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 7: VENUE & GOOGLE MAPS -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-6">
+      
+      <div class="text-center mb-6">
+        <p class="font-body text-[10px] tracking-[0.3em] uppercase text-[#A23B2A] font-bold">Location</p>
+        <h2 class="font-display text-3xl text-[#4A0E17] mt-1">The Royal Venue</h2>
+        <div class="w-12 h-[1px] bg-[#D4AF37] mx-auto my-2"></div>
+        <p class="font-serif italic text-xs text-[#671420]">We eagerly await your arrival</p>
+      </div>
+
+      <!-- Venue Card -->
+      <div class="rounded-2xl border border-[#D4AF37]/50 bg-[#FAF6EE] overflow-hidden shadow-md">
+        
+        <!-- Venue Banner Header -->
+        <div class="p-5 text-center border-b border-[#D4AF37]/30">
+          <div class="w-10 h-10 rounded-full bg-[#A23B2A]/10 text-[#A23B2A] flex items-center justify-center mx-auto mb-2">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl font-bold text-[#4A0E17]">S.D. Palace</h3>
+          <p class="font-serif text-sm font-medium text-[#671420] mt-1">
+            Near I.I.M., Sitapur Road, Lucknow, Uttar Pradesh
+          </p>
+        </div>
+
+        <!-- Embedded Google Maps (Responsive Iframe) -->
+        <div class="relative w-full aspect-[4/3] bg-gray-200">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.040055624922!2d80.9198806!3d26.933944599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999578cb19b39d1%3A0x2b149f230b81f109!2sS.D.%20Palace!5e0!3m2!1sen!2sin!4v1792344571212!5m2!1sen!2sin" 
+            class="w-full h-full border-0" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+
+        <!-- Map Action Buttons -->
+        <div class="p-4 bg-white/60 space-y-2.5">
+          <a href="https://maps.app.goo.gl/Mpp2Ysi3FXDZNZue6" target="_blank" class="w-full py-2.5 px-4 rounded-xl gold-foil-bg text-[#3D0911] font-display font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm hover:brightness-105 transition">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+            <span>Open in Google Maps</span>
+          </a>
+
+          <a href="https://api.whatsapp.com/send?text=Venue%20for%20Aditya%20%26%20Anchal%27s%20Wedding%3A%20S.D.%20Palace%2C%20Near%20I.I.M.%2C%20Sitapur%20Road%2C%20Lucknow.%20Map%20Link%3A%20https%3A%2F%2Fmaps.app.goo.gl%2FMpp2Ysi3FXDZNZue6" target="_blank" class="w-full py-2 px-4 rounded-xl border border-[#D4AF37]/50 bg-[#FAF6EE] text-[#671420] text-xs font-semibold flex items-center justify-center gap-2 hover:bg-[#F3EAD8] transition">
+            <svg class="w-4 h-4 text-emerald-600 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+            <span>Share Venue on WhatsApp</span>
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- SECTION 8: INTERACTIVE BLESSINGS & CELEBRATION TOUCH -->
+    <!-- ----------------------------------------------------------------------- -->
+    <section class="px-5 py-6">
+      <div class="rounded-3xl border border-[#D4AF37]/40 bg-[#FAF6EE] p-6 text-center shadow-sm relative overflow-hidden">
+        
+        <p class="font-body text-[10px] tracking-[0.25em] uppercase text-[#A23B2A] font-bold">Shower Your Love</p>
+        <h3 class="font-display text-2xl text-[#4A0E17] mt-1">Send Blessings</h3>
+        <p class="font-serif italic text-xs text-[#671420] mt-1 max-w-xs mx-auto">
+          "Your gracious presence and blessings will make our celebration truly memorable."
+        </p>
+
+        <!-- Interactive Shower Petals Button -->
+        <div class="mt-5">
+          <button onclick="showerPetals()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#A23B2A] text-[#FAF6EE] font-display text-xs font-bold uppercase tracking-wider shadow-md hover:bg-[#852718] active:scale-95 transition">
+            <span>Shower Flower Petals 🌸</span>
+          </button>
+        </div>
+
+        <!-- WhatsApp Wish Button -->
+        <div class="mt-3">
+          <a href="https://api.whatsapp.com/send?text=Heartiest%20Congratulations%20Aditya%20%26%20Anchal!%20%F0%9F%8E%89%20Wishing%20you%20both%20a%20lifetime%20of%20love%2C%20happiness%2C%20and%20blessed%20togetherness!%20%E2%9C%A8%F0%9F%92%8D" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-[#671420] hover:text-[#A23B2A] underline underline-offset-4 transition">
+            <svg class="w-4 h-4 text-emerald-600 fill-current" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/></svg>
+            <span>Send Warm Wishes on WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- View Original Invitation Card Modal Trigger -->
+        <div class="mt-4 pt-4 border-t border-[#D4AF37]/30">
+          <button onclick="openCardModal()" class="text-[11px] font-medium text-[#7A4E0B] hover:text-[#A23B2A] flex items-center justify-center gap-1 mx-auto transition">
+            <span>View Original Printed Card</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- FOOTER: SIGN-OFF & MONOGRAM -->
+    <!-- ----------------------------------------------------------------------- -->
+    <footer class="pt-6 pb-12 px-6 text-center border-t border-[#D4AF37]/20">
+      
+      <!-- Monogram Stamp -->
+      <div class="w-12 h-12 rounded-full border border-[#D4AF37] mx-auto flex items-center justify-center bg-[#FAF6EE] shadow-sm mb-3">
+        <span class="font-display font-bold text-[#671420] text-lg">A<sup class="text-[10px] text-[#A23B2A]">2</sup></span>
+      </div>
+
+      <h4 class="font-script text-3xl text-[#4A0E17]">Aditya & Anchal</h4>
+      <p class="font-body text-[10px] uppercase tracking-[0.25em] text-[#A23B2A] font-bold mt-1">#AdityaWedsAnchal</p>
+
+      <div class="w-16 h-[1px] bg-[#D4AF37] mx-auto my-3"></div>
+
+      <p class="font-serif italic text-xs text-[#671420]">
+        With warm regards &amp; best compliments from
+      </p>
+      <p class="font-serif text-sm font-semibold text-[#31070D] mt-0.5">
+        Rai Family, Relatives &amp; Friends
+      </p>
+
+      <!-- Reopen Envelope Option -->
+      <div class="mt-6">
+        <button onclick="reopenEnvelope()" class="text-[11px] text-[#7A4E0B] underline underline-offset-4 hover:text-[#A23B2A] transition">
+          Replay Envelope Opening
+        </button>
+      </div>
+
+    </footer>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING BOTTOM ACTION BAR (MOBILE QUICK ACCESS) -->
+  <!-- ========================================================================= -->
+  <nav class="fixed bottom-3 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
+    <div class="pointer-events-auto bg-[#31070D]/90 backdrop-blur-md border border-[#D4AF37]/40 rounded-full px-4 py-2 shadow-royal flex items-center gap-4 text-xs font-medium text-[#F3E5AB]">
+      
+      <!-- Countdowns Button -->
+      <button onclick="document.querySelector('#daysVal').scrollIntoView({behavior: 'smooth'})" class="flex items-center gap-1.5 hover:text-white transition">
+        <span>⏳</span>
+        <span>Countdown</span>
+      </button>
+
+      <span class="text-[#D4AF37]/40">|</span>
+
+      <!-- Venue Map Button -->
+      <a href="https://maps.app.goo.gl/Mpp2Ysi3FXDZNZue6" target="_blank" class="flex items-center gap-1.5 hover:text-white transition">
+        <span>📍</span>
+        <span>Map</span>
+      </a>
+
+      <span class="text-[#D4AF37]/40">|</span>
+
+      <!-- Shower Flowers -->
+      <button onclick="showerPetals()" class="flex items-center gap-1.5 hover:text-white transition">
+        <span>🌸</span>
+        <span>Bless</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: ORIGINAL INVITATION CARD LIGHTBOX -->
+  <!-- ========================================================================= -->
+  <div id="cardModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative max-w-sm w-full bg-white rounded-2xl overflow-hidden shadow-2xl border border-[#D4AF37]">
+      <div class="p-3 bg-[#4A0E17] text-white flex items-center justify-between">
+        <span class="font-display text-sm tracking-wide">Original Invitation Card</span>
+        <button onclick="closeCardModal()" class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30 text-sm">✕</button>
+      </div>
+      <div class="max-h-[75vh] overflow-y-auto p-2 bg-[#FAF6EE]">
+        <img src="assets/invitation_card.png" alt="Original Wedding Card" class="w-full h-auto rounded-lg shadow-sm" />
+      </div>
+      <div class="p-3 bg-white text-center">
+        <a href="assets/invitation_card.png" download="Aditya_Anchal_Wedding_Invitation.png" class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full gold-foil-bg text-[#3D0911] text-xs font-bold uppercase tracking-wider">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          <span>Download Card</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: COUNTDOWNS, AUDIO, ENVELOPE & PETAL PARTICLES -->
+  <!-- ========================================================================= -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. DUAL COUNTDOWNS CONFIGURATION (TILAK & SHADI)
+    // -------------------------------------------------------------------------
+    // Tilak Ceremony: 26 November 2026, 18:00 IST
+    const tilakTarget = new Date('2026-11-26T18:00:00+05:30').getTime();
+    // Wedding Ceremony: 30 November 2026, 19:00 IST
+    const shadiTarget = new Date('2026-11-30T19:00:00+05:30').getTime();
+
+    let activeCountdown = 'tilak'; // Default to first upcoming event
+
+    function updateCountdown() {
+      const targetTime = activeCountdown === 'tilak' ? tilakTarget : shadiTarget;
+      const now = new Date().getTime();
+      const diff = targetTime - now;
+
+      if (diff <= 0) {
+        document.getElementById('daysVal').innerText = "00";
+        document.getElementById('hoursVal').innerText = "00";
+        document.getElementById('minsVal').innerText = "00";
+        document.getElementById('secsVal').innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('daysVal').innerText = String(days).padStart(2, '0');
+      document.getElementById('hoursVal').innerText = String(hours).padStart(2, '0');
+      document.getElementById('minsVal').innerText = String(minutes).padStart(2, '0');
+      document.getElementById('secsVal').innerText = String(seconds).padStart(2, '0');
+    }
+
+    function switchCountdown(type) {
+      activeCountdown = type;
+      const tabTilak = document.getElementById('tabTilak');
+      const tabShadi = document.getElementById('tabShadi');
+      const eventLabel = document.getElementById('countdownEventLabel');
+
+      if (type === 'tilak') {
+        tabTilak.className = "flex-1 py-1.5 px-3 rounded-full text-xs font-semibold transition-all duration-300 gold-foil-bg text-[#3D0911] shadow";
+        tabShadi.className = "flex-1 py-1.5 px-3 rounded-full text-xs font-semibold transition-all duration-300 text-[#F3E5AB] hover:text-white";
+        eventLabel.innerText = "Tilak Ceremony • Thursday, 26 November 2026";
+      } else {
+        tabShadi.className = "flex-1 py-1.5 px-3 rounded-full text-xs font-semibold transition-all duration-300 gold-foil-bg text-[#3D0911] shadow";
+        tabTilak.className = "flex-1 py-1.5 px-3 rounded-full text-xs font-semibold transition-all duration-300 text-[#F3E5AB] hover:text-white";
+        eventLabel.innerText = "Wedding Ceremony (Shadi) • Monday, 30 November 2026";
+      }
+
+      updateCountdown();
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // -------------------------------------------------------------------------
+    // 2. ENVELOPE OPENING ANIMATION & AUDIO INITIATION
+    // -------------------------------------------------------------------------
+    function openInvitation() {
+      const envelopeBox = document.getElementById('envelopeBox');
+      const envelopeOverlay = document.getElementById('envelopeOverlay');
+      
+      // Trigger flap open CSS animation
+      envelopeBox.classList.add('envelope-open');
+
+      // Start audio after guest gesture (bypasses browser autoplay block)
+      playAudio();
+
+      // Shower initial celebration petals
+      showerPetals();
+
+      // Fade out overlay after unboxing animation
+      setTimeout(() => {
+        envelopeOverlay.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          envelopeOverlay.style.display = 'none';
+        }, 700);
+      }, 1000);
+    }
+
+    function reopenEnvelope() {
+      const envelopeOverlay = document.getElementById('envelopeOverlay');
+      const envelopeBox = document.getElementById('envelopeBox');
+      
+      envelopeOverlay.style.display = 'flex';
+      envelopeOverlay.classList.remove('pointer-events-none', 'opacity-0');
+      envelopeBox.classList.remove('envelope-open');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // -------------------------------------------------------------------------
+    // 3. BACKGROUND MUSIC TOGGLE
+    // -------------------------------------------------------------------------
+    const audio = document.getElementById('weddingAudio');
+    const audioStatusText = document.getElementById('audioStatusText');
+    const discIcon = document.getElementById('discIcon');
+
+    function playAudio() {
+      audio.play().then(() => {
+        audioStatusText.innerText = "Music : On";
+        discIcon.classList.add('animate-spin-slow');
+      }).catch((e) => {
+        console.log("Audio waiting for user gesture:", e);
+      });
+    }
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          audioStatusText.innerText = "Music : On";
+          discIcon.classList.add('animate-spin-slow');
+        });
+      } else {
+        audio.pause();
+        audioStatusText.innerText = "Music : Off";
+        discIcon.classList.remove('animate-spin-slow');
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. ROSE & MARIGOLD FLOWER PETAL SHOWER ANIMATION
+    // -------------------------------------------------------------------------
+    function showerPetals() {
+      const petalTypes = ['🌸', '🌺', '🌹', '✨', '💐', '🌼'];
+      const totalPetals = 32;
+
+      for (let i = 0; i < totalPetals; i++) {
+        setTimeout(() => {
+          const petal = document.createElement('div');
+          petal.className = 'petal';
+          petal.innerText = petalTypes[Math.floor(Math.random() * petalTypes.length)];
+          petal.style.left = Math.random() * 95 + 'vw';
+          petal.style.fontSize = (Math.random() * 16 + 18) + 'px';
+          petal.style.animationDuration = (Math.random() * 2 + 3) + 's';
+          document.body.appendChild(petal);
+
+          setTimeout(() => {
+            petal.remove();
+          }, 4800);
+        }, i * 70);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. ORIGINAL CARD MODAL
+    // -------------------------------------------------------------------------
+    function openCardModal() {
+      document.getElementById('cardModal').classList.remove('hidden');
+    }
+
+    function closeCardModal() {
+      document.getElementById('cardModal').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
